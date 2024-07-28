@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         TeamRepositoryImpl teamRepository;
         teamRepository = new TeamRepositoryImpl(new Team[5]);
-        Team[] team = teamRepository.getTeam();
+        Team[] team = teamRepository.getTeams();
         team[0] = new Team("TeamSpirit", new Player[]{
                 new Player("Raddan", "carry", 10000),
                 new Player("Larl", "mid", 11000),
@@ -38,8 +38,8 @@ public class Main {
                 new Player("Pyw", "support", 8200),
                 new Player("y`", "support", 8800)
         });
-        Team vp = teamRepository.teamSearch("cum");
-        System.out.println(vp.getTeam());
+
+        System.out.println(teamRepository.gamerSearch("Ace"));
     }
 
 
