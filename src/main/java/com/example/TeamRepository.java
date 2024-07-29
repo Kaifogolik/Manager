@@ -1,7 +1,8 @@
 package com.example;
 
 public interface TeamRepository {
-    Team teamSearch(String team);
-    Team gamerSearch(String player);
+    Team findTeamByTeamName(String teamName);
+    Team findTeamByPlayerName(String playerName);
+    Player findPlayerByName(String playerName);
 }
 

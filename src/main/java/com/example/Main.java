@@ -39,7 +39,7 @@ public class Main {
                 new Player("y`", "support", 8800)
         });
 
-        System.out.println(teamRepository.gamerSearch("Ace"));
+        System.out.println(teamRepository.findTeamByPlayerName("Ace"));
     }
 
 

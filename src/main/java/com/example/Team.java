@@ -16,6 +16,8 @@ public class Team {
         this.players = players;
         this.avgMmr = countAvaregeMmr();
     }
+
+
     private int countAvaregeMmr() {
         int counter = 0;
         for (Player player : players) {
@@ -23,5 +25,10 @@ public class Team {
         }
         return counter / players.length;
 
+    }
+
+    public Player getPlayerWithMaxMmr() {
+        //TODO здесь написать свой код
+        return null;
     }
 }
