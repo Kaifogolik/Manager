@@ -28,7 +28,13 @@ public class Team {
     }
 
     public Player getPlayerWithMaxMmr() {
-        //TODO здесь написать свой код
+        //TODO здесь написать свой код игрок с макс ммр
+        int maxMmr = 7000;
+        for (Player player : players) {
+            if (maxMmr > player.getMmr()) {
+                maxMmr = player.getMmr();
+            }
+        }
         return null;
     }
 }

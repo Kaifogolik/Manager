@@ -42,11 +42,20 @@ public class TeamRepositoryImpl implements TeamRepository {
 
     @Override
     public Player findPlayerByName(String playerName) {
+        for (Team team : teams) {
+            Player[] players = team.getPlayers();
+            for (Player player : players) {
+                if (playerName.equals(player.getPlayerName())) {
+                    return player;
+                }
 
-        //TODO Здесь написать код.
+            }
+
+
+        }
+
         return null;
     }
-
 
 }
 
