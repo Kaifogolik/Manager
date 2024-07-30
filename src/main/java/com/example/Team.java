@@ -24,6 +24,7 @@ public class Team {
             counter += player.getMmr();
         }
         return counter / players.length;
+        //asdasdasdasd
 
     }
 
