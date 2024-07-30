@@ -48,14 +48,32 @@ public class TeamRepositoryImpl implements TeamRepository {
                 if (playerName.equals(player.getPlayerName())) {
                     return player;
                 }
-
             }
-
-
         }
 
         return null;
     }
+
+    @Override
+    public Team findTeamWithMaxAvgMmr() {
+        //написать код, который возвращает команду с максимальным средним ммр. Это очень похоже на то что делалает в Team.getPlayerWithMaxMmr();
+        return null;
+    }
+
+    @Override
+    public void sortTeamsBuyAvgMmr() {
+        //написать код который сортирует команды в массиве по среднему ммр от минимального к максимальному.
+    }
+
+    public boolean isSorted() {  //Этот метод я написал для проверкикорректности sortTeamsBuyAvgMmr()
+        for (int i = 0; i < teams.length - 1; i++) {
+            if (teams[i].getAvgMmr() > teams[i + 1].getAvgMmr()) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 }
 

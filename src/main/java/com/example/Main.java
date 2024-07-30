@@ -39,7 +39,13 @@ public class Main {
                 new Player("y`", "support", 8800)
         });
 
-        System.out.println(teamRepository.findTeamByPlayerName("Ace"));
+        Player playerWithMaxMmr = team[3].getPlayerWithMaxMmr();
+        System.out.println(playerWithMaxMmr);
+        Team teamWithMaxAvgMmr = teamRepository.findTeamWithMaxAvgMmr();
+        System.out.println(teamWithMaxAvgMmr);
+        teamRepository.sortTeamsBuyAvgMmr();
+        System.out.println(teamRepository.isSorted());
+        //для проверки просто запусти main()
     }
 
 
