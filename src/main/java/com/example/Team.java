@@ -25,6 +25,7 @@ public class Team {
         }
         return counter / players.length;
         //asdasdasdasd
+        //asd
 
     }
 
