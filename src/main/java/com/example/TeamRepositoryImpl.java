@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 @Getter
 @AllArgsConstructor
 @Log4j
@@ -57,12 +60,25 @@ public class TeamRepositoryImpl implements TeamRepository {
     @Override
     public Team findTeamWithMaxAvgMmr() {
         //написать код, который возвращает команду с максимальным средним ммр. Это очень похоже на то что делалает в Team.getPlayerWithMaxMmr();
-        return null;
+        Team teamMvp = null;
+        int mvpMmr = 0;
+        for (Team team : teams) {
+            if (team.getAvgMmr() > mvpMmr) {
+                mvpMmr = team.getAvgMmr();
+                teamMvp = team;
+                log.info(teamMvp.toString());
+            }
+        }
+
+        return teamMvp;
     }
 
     @Override
     public void sortTeamsBuyAvgMmr() {
         //написать код который сортирует команды в массиве по среднему ммр от минимального к максимальному.
+        int[] mmrs = new int[teams.length];
+        Arrays.sort(mmrs);
+        Arrays.sort(teams, Comparator.comparingInt(Team::getAvgMmr));
     }
 
     public boolean isSorted() {  //Этот метод я написал для проверкикорректности sortTeamsBuyAvgMmr()

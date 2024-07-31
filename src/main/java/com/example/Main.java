@@ -5,7 +5,7 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
         TeamRepositoryImpl teamRepository;
-        teamRepository = new TeamRepositoryImpl(new Team[5]);
+        teamRepository = new TeamRepositoryImpl(new Team[4]);
         Team[] team = teamRepository.getTeams();
         team[0] = new Team("TeamSpirit", new Player[]{
                 new Player("Raddan", "carry", 10000),
