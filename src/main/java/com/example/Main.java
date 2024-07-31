@@ -5,7 +5,7 @@ package com.example;
 public class Main {
     public static void main(String[] args) {
         TeamRepositoryImpl teamRepository;
-        teamRepository = new TeamRepositoryImpl(new Team[5]);
+        teamRepository = new TeamRepositoryImpl(new Team[4]);
         Team[] team = teamRepository.getTeams();
         team[0] = new Team("TeamSpirit", new Player[]{
                 new Player("Raddan", "carry", 10000),
@@ -39,7 +39,13 @@ public class Main {
                 new Player("y`", "support", 8800)
         });
 
-        System.out.println(teamRepository.findTeamByPlayerName("Ace"));
+        Player playerWithMaxMmr = team[3].getPlayerWithMaxMmr();
+        System.out.println(playerWithMaxMmr);
+        Team teamWithMaxAvgMmr = teamRepository.findTeamWithMaxAvgMmr();
+        System.out.println(teamWithMaxAvgMmr);
+        teamRepository.sortTeamsBuyAvgMmr();
+        System.out.println(teamRepository.isSorted());
+        //для проверки просто запусти main()
     }
 
 
