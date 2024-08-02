@@ -1,34 +1,37 @@
 package com.example;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Data
 @NoArgsConstructor
 public class Team {
-    private String team;
-    private Player[] players;
+    private ArrayList<String> team;
+    private ArrayList<Player> players;
+    @Getter
     private int avgMmr;
 
-    public Team(String team, Player[] players) {
-        this.team = team;
-        this.players = players;
-        this.avgMmr = countAvaregeMmr();
+    public Team(List<String> team, List<Player> players) {
+        this.team = (ArrayList<String>) team;
+        this.players = (ArrayList<Player>) players;
+        this.avgMmr = countAverageMmr();
     }
 
-
-    private int countAvaregeMmr() {
+    private int countAverageMmr() {
         int counter = 0;
         for (Player player : players) {
             counter += player.getMmr();
         }
-        return counter / players.length;
-
+        return players.size() > 0 ? counter / players.size() : 0;
     }
 
     public Player getPlayerWithMaxMmr() {
-        //TODO здесь написать свой код игрок с макс ммр
+        // TODO Здесь написать свой код игрока с макс ммр
         int maxMmr = 0;
         Player maxPlayer = null;
         for (Player player : players) {
@@ -39,5 +42,5 @@ public class Team {
         }
         return maxPlayer;
     }
-}
 
+}

@@ -1,8 +1,10 @@
 package com.example;
 
+import java.util.List;
+
 public interface TeamRepository {
-    Team findTeamByTeamName(String teamName);
-    Team findTeamByPlayerName(String playerName);
+    List<Player> findTeamByTeamName(String teamName);
+    List<Team> findTeamByPlayerName(String playerName);
     Player findPlayerByName(String playerName);
     Team findTeamWithMaxAvgMmr();
     void sortTeamsBuyAvgMmr();
