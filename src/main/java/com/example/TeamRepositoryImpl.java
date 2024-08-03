@@ -4,32 +4,28 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 @Getter
 @AllArgsConstructor
 @Log4j
 public class TeamRepositoryImpl implements TeamRepository {
 
-    List<Team> teams;
+    Map<String, Team> teams;
 
     @Override
-    public List<Player> findTeamByTeamName(String teamName) {
-        for (Team team1 : teams) {
-            ArrayList<String> name1 = team1.getTeamName();
-        }
-        log.info("Ничего не найдено");
-        return null;
+    public Team findTeamByTeamName(String teamName) {
+        return teams.get(teamName);
     }
 
     @Override
-    public List<Team> findTeamByPlayerName(String playerName) {
-        for (Team team : teams) {
-            ArrayList<Player> players = team.getPlayers();
+    public Team findTeamByPlayerName(String playerName) {
+        for (Team team : teams.values()) {
+            List<Player> players = team.getPlayers();
             for (Player player : players) {
+                if (player.getPlayerName() == playerName) {
+                    return team;
+                }
             }
 
         }
@@ -40,9 +36,12 @@ public class TeamRepositoryImpl implements TeamRepository {
 
     @Override
     public Player findPlayerByName(String playerName) {
-        for (Team team : teams) {
-            ArrayList<Player> players = team.getPlayers();
+        for (Team team : teams.values()) {
+            List<Player> players = team.getPlayers();
             for (Player player : players) {
+                if (player.getPlayerName() == playerName) {
+                    return player;
+                }
             }
         }
 
@@ -52,7 +51,7 @@ public class TeamRepositoryImpl implements TeamRepository {
     public Team findTeamWithMaxAvgMmr() {
         Team teamMvp = null;
         int mvpMmr = 0;
-        for (Team team : teams) {
+        for (Team team : teams.values()) {
             if (team.getAvgMmr() > mvpMmr) {
                 mvpMmr = team.getAvgMmr();
                 teamMvp = team;
@@ -64,16 +63,9 @@ public class TeamRepositoryImpl implements TeamRepository {
 
     @Override
     public void sortTeamsBuyAvgMmr() {
-        Arrays.sort(teams.toArray(new Team[0]), Comparator.comparingInt(Team::getAvgMmr));
+        Arrays.sort(teams.values().toArray(new Team[0]), Comparator.comparingInt(Team::getAvgMmr));
     }
 
-    public boolean isSorted() {
-        for (int i = 0; i < teams.size() - 1; i++) {
-            if (teams.get(i).getAvgMmr() > teams.get(i + 1).getAvgMmr()) {
-                return false;
-            }
-        }
-        return true;
-    }
+
 }
 

@@ -12,13 +12,13 @@ import java.util.List;
 @NoArgsConstructor
 public class Team {
     private String teamName;
-    private ArrayList<Player> players;
+    private List<Player> players;
     @Getter
     private int avgMmr;
 
     public Team(String teamName, List<Player> players) {
         this.teamName = teamName;
-        this.players = (ArrayList<Player>) players;
+        this.players = players;
         this.avgMmr = countAverageMmr();
     }
 
