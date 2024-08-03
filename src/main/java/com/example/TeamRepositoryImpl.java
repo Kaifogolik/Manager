@@ -19,7 +19,7 @@ public class TeamRepositoryImpl implements TeamRepository {
     @Override
     public List<Player> findTeamByTeamName(String teamName) {
         for (Team team1 : teams) {
-            ArrayList<String> name1 = team1.getTeam();
+            ArrayList<String> name1 = team1.getTeamName();
         }
         log.info("Ничего не найдено");
         return null;

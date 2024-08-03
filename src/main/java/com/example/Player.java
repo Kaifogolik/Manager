@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @Data
 @AllArgsConstructor
 public class Player {
-    private ArrayList<String> playerName;
-    private ArrayList<String> rolePlayer;
-    private ArrayList<Integer> mmr;
+    private String playerName;
+    private String rolePlayer;
+    private Integer mmr;
 }
