@@ -3,8 +3,6 @@ package com.example;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.util.ArrayList;
-
 @Data
 @AllArgsConstructor
 public class Player {

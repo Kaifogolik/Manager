@@ -6,5 +6,6 @@ public interface TeamRepository {
     Player findPlayerByName(String playerName);
     Team findTeamWithMaxAvgMmr();
     void sortTeamsBuyAvgMmr();
+
 }
 

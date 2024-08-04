@@ -47,6 +47,7 @@ public class TeamRepositoryImpl implements TeamRepository {
 
         return null;
     }
+
     @Override
     public Team findTeamWithMaxAvgMmr() {
         Team teamMvp = null;
@@ -65,7 +66,34 @@ public class TeamRepositoryImpl implements TeamRepository {
     public void sortTeamsBuyAvgMmr() {
         Arrays.sort(teams.values().toArray(new Team[0]), Comparator.comparingInt(Team::getAvgMmr));
     }
+    private Queue<Team> matchQueue;
+    private Stack<Team> changeStack;
+    public Team addTeam;
 
+    public void addTeamQueue() {
+        matchQueue.add();
+
+
+    }
+
+    public Team getNextTeamQueue() {
+        return matchQueue.poll();
+    }
+
+    public void changeAdd(Team change) {
+        Stack<Team> changeStack = new Stack<>();
+        changeStack.push(change);
+
+
+    }
+
+    public String getLastChange() {
+        if (!changeStack.isEmpty()) {
+            return String.valueOf(changeStack.pop());
+        } else {
+            return null;
+        }
+    }
 
 }
 
