@@ -12,6 +12,8 @@ import java.util.*;
 public class TeamRepositoryImpl implements TeamRepository {
 
     Map<String, Team> teams;
+    private Queue<Team> matchQueue;
+    private Stack<Team> changeStack;
 
     @Override
     public Team findTeamByTeamName(String teamName) {
@@ -27,9 +29,7 @@ public class TeamRepositoryImpl implements TeamRepository {
                     return team;
                 }
             }
-
         }
-
         log.info("Ничего не найдено");
         return null;
     }
@@ -44,7 +44,6 @@ public class TeamRepositoryImpl implements TeamRepository {
                 }
             }
         }
-
         return null;
     }
 
@@ -66,15 +65,8 @@ public class TeamRepositoryImpl implements TeamRepository {
     public void sortTeamsBuyAvgMmr() {
         Arrays.sort(teams.values().toArray(new Team[0]), Comparator.comparingInt(Team::getAvgMmr));
     }
-    private Queue<Team> matchQueue;
-    private Stack<Team> changeStack;
-    public Team addTeam;
-
-    public void addTeamQueue() {
-        matchQueue.add();
 
 
-    }
 
     public Team getNextTeamQueue() {
         return matchQueue.poll();
@@ -83,8 +75,6 @@ public class TeamRepositoryImpl implements TeamRepository {
     public void changeAdd(Team change) {
         Stack<Team> changeStack = new Stack<>();
         changeStack.push(change);
-
-
     }
 
     public String getLastChange() {
